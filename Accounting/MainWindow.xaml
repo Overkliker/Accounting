@@ -47,6 +47,8 @@
                 Content="Types" FontSize="30" Click="NewTypeBtn_Click"/>
         <Button x:Name="UpdateTpBtn" Grid.Row="1" Grid.Column="3" Height="50" Width="150"
                 Content="Update Types" FontSize="22" Click="UpdateTpBtn_Click"/>
+
+        <Label x:Name="SumLb" Grid.Row="2" Grid.Column="4" Height="50" Width="150"/>
         <Frame x:Name="AllFrame" Grid.ColumnSpan="5" Grid.RowSpan="5" NavigationUIVisibility="Hidden"/>
 
     </Grid>

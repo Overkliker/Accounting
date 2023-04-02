@@ -10,6 +10,7 @@ namespace Accounting
     internal class DopFuns
     {
         typesZapTableAdapter types = new typesZapTableAdapter();
+        zapisTableAdapter zapis = new zapisTableAdapter();
         public static string dateCon()
         {
             string date = DateTime.Now.Date.ToString("dd/MM/yyyy");
@@ -23,6 +24,18 @@ namespace Accounting
         public void addType(string name)
         {
             types.InsertQuery(name);
+        }
+
+        public int sum()
+        {
+            int ct = 0;
+            var data = zapis.GetData();
+
+            foreach (var i in data)
+            {
+                ct += i.countMoney;
+            }
+            return ct;
         }
 
     }

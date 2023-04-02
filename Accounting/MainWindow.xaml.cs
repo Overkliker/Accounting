@@ -25,6 +25,7 @@ namespace Accounting
     {
         zapisTableAdapter zapis = new zapisTableAdapter();
         typesZapTableAdapter types = new typesZapTableAdapter();
+        DopFuns dop = new DopFuns();
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace Accounting
             TypeBox.DisplayMemberPath = "typeName";
 
             ChacngeDate.SelectedDate = DateTime.Now.Date;
-            Debug.WriteLine(ChacngeDate.SelectedDate.ToString());
+            SumLb.Content = dop.sum();
         }
 
 
@@ -52,6 +53,7 @@ namespace Accounting
             ZamGrid.ItemsSource = zapis.GetDataBy1(DopFuns.timeCon(ChacngeDate.SelectedDate.ToString()));
             NameUpBox.Text = null;
             MoneyUpBox.Text = null;
+            SumLb.Content = dop.sum();
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
@@ -88,6 +90,7 @@ namespace Accounting
                         ZamGrid.ItemsSource = zapis.GetDataBy1(DopFuns.timeCon(ChacngeDate.SelectedDate.ToString()));
                         NameUpBox.Text = null;
                         MoneyUpBox.Text = null;
+                        SumLb.Content = dop.sum();
                     }
 
                     
@@ -135,6 +138,7 @@ namespace Accounting
                         ZamGrid.ItemsSource = zapis.GetDataBy1(DopFuns.timeCon(ChacngeDate.SelectedDate.ToString()));
                         NameBox.Text = null;
                         MoneyBox.Text = null;
+                        SumLb.Content = dop.sum();
                     }
                 }
             }
